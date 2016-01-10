@@ -8,7 +8,7 @@
   function zmanimCtrl($scope, $http) {
     $scope.zmanim = {};
 
-    var api =  'http://db.ou.org/zmanim/getCalendarData.php?mode=day&timezone=America/New_York&dateBegin=4/14/2014';
+    var api =  'https://db.ou.org/zmanim/getCalendarData.php?mode=day&timezone=America/New_York&dateBegin=4/14/2014';
     var lat =  '&lat=40.434890';
     var lng =  '&lng=-79.922075';
     // var cors = '&callback=JSON_CALLBACK';
