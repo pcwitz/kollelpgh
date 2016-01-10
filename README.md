@@ -25,10 +25,9 @@ ENVIRONMENT
 
   *  git clone https://github.com/pcwitz/kollelpgh.git
 
-###  nodemon server
+###  hosted on heroku
 
-  *  install globally with npm install nodemon -g
-  *  run with nodemon index.js
+  *  https://kollelpgh.herokuapp.com/
 
 ###  use bower for frontend libraries
 
