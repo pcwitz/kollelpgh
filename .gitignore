@@ -1,5 +1,4 @@
 Procfile
 .tmp
 .DS_STORE
-package.json
 node_modules
