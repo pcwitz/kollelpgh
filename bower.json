@@ -1,0 +1,17 @@
+{
+  "name": "kollelpgh",
+  "version": "1.0.0",
+  "authors": [
+    "PerryAbramowitz <pcwitz@gmail.com>"
+  ],
+  "description": "kollelpgh refresh",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.kollelpgh.org",
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-route": "~1.4.8"
+  }
+}
