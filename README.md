@@ -32,8 +32,3 @@ ENVIRONMENT
 ###  use bower for frontend libraries
 ###  use npm for backend libraries
 
-BUGS
---------------------
-*  partials are not loading on page refresh, i.e., when the index is not loaded first
-
-
