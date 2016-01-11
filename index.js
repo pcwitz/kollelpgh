@@ -5,8 +5,7 @@ var express = require('express'),
   routes = require('./routes'),
   api = require('./routes/api'),
   http = require('http'),
-  path = require('path'),
-  cors = require('cors');
+  path = require('path');
 
 var app = module.exports = express();
 app.set('port', process.env.PORT || 3000);
@@ -15,7 +14,6 @@ app.set('port', process.env.PORT || 3000);
  */
 
 // all environments
-app.use(cors());
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded( {extended: true} ))
 app.use(bodyParser.json())
@@ -53,7 +51,4 @@ app.get('*', routes.index);
 /**
  * Start Server
  */
-
-http.createServer(app).listen(app.get('port'), function () {
-  console.log('Express server listening on port ' + app.get('port'));
-});
+app.listen(app.get('port'));

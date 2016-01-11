@@ -2,8 +2,9 @@ kollelpgh
 ====================
 [cli] /Users/pcwitz/Documents/sublime-projects/kollelpgh
 [git](https://github.com/pcwitz/kollelpgh.git)
-[dev](localhost:3000)
-[prod](www.kollelpgh.org)
+[dev local](http://localhost:3000)
+[dev host](https://kollelpgh.herokuapp.com/)
+[prod](http://www.kollelpgh.org)
 
 OBJECTIVE
 --------------------
@@ -22,17 +23,13 @@ REQUIREMENTS
 ENVIRONMENT
 --------------------
 ###  clone this repository
-
   *  git clone https://github.com/pcwitz/kollelpgh.git
 
 ###  hosted on heroku
-
-  *  https://kollelpgh.herokuapp.com/
+  *  commit with git
+  *  git push heroku master
 
 ###  use bower for frontend libraries
-
-  *  npm bower install -g
-
 ###  use npm for backend libraries
 
 BUGS
