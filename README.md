@@ -26,8 +26,8 @@ ENVIRONMENT
   *  git clone https://github.com/pcwitz/kollelpgh.git
 
 ###  hosted on heroku
-  *  commit with git
-  *  git push heroku master
+  *  git push origin master
+  *  this will deploy to heroku as well
 
 ###  use bower for frontend libraries
 ###  use npm for backend libraries
