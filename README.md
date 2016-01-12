@@ -1,9 +1,6 @@
 kollelpgh
 ====================
-[cli] /Users/pcwitz/Documents/sublime-projects/kollelpgh
-[git](https://github.com/pcwitz/kollelpgh.git)
-[dev local](http://localhost:3000)
-[dev host](https://kollelpgh.herokuapp.com/)
+[dev](http://dev.kollelpgh.org/)
 [prod](http://www.kollelpgh.org)
 
 OBJECTIVE
@@ -22,8 +19,12 @@ REQUIREMENTS
 
 ENVIRONMENT
 --------------------
-###  clone this repository
+###  local development
   *  git clone https://github.com/pcwitz/kollelpgh.git
+  *  npm install
+  *  npm install nodemon -g
+  *  nodemon index.js
+  *  localhost:3000
 
 ###  hosted on heroku
   *  git push origin master
