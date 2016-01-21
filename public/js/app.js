@@ -13,17 +13,18 @@ function config($routeProvider, $locationProvider) {
   $routeProvider
     .when('/zmanim', {
       templateUrl: 'partials/zmanim.html',
-      controller: 'zmanimCtrl'
+      controller: 'zmanimCtrl',
+      controllerAs: 'self'
     })
-    .when('/view1', {
-      templateUrl: 'partials/partial1.html',
+    .when('/welcome', {
+      templateUrl: 'partials/welcome.html',
       controller: 'apiCtrl'
     })
     .when('/view2', {
       templateUrl: 'partials/partial2.html'
     })
     .otherwise({
-      redirectTo: '/view1'
+      redirectTo: '/welcome'
     });
 
   $locationProvider.html5Mode(true);

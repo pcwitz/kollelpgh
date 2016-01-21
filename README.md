@@ -5,7 +5,7 @@ kollelpgh
 
 OBJECTIVE
 --------------------
-refresh, simplify, json-ify with zmanim, and add a donate button
+refresh, simplify, json-ify
 
 USERS AND AUDIENCE
 --------------------
@@ -13,9 +13,16 @@ jewish community
 
 FEATURES
 --------------------
+*  daily and shabbos zmanim
 
 REQUIREMENTS
 --------------------
+*  daily and shabbos zmanim
+*  use PDFKit, A JavaScript PDF generation library for Node and the browser, to generate printable shabbos zmanim PDF
+*  donate button
+*  link to library catalog
+*  book sponsorship form
+*  audio feed
 
 ENVIRONMENT
 --------------------
@@ -23,7 +30,9 @@ ENVIRONMENT
   *  git clone https://github.com/pcwitz/kollelpgh.git
   *  npm install
   *  npm install nodemon -g
-  *  nodemon index.js
+  *  bower install
+###  run
+  *  npm start
   *  localhost:3000
 
 ###  hosted on heroku

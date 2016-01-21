@@ -2,10 +2,12 @@ var express = require('express'),
   bodyParser = require('body-parser'),
   methodOverride = require('method-override'),
   morgan = require('morgan'),
+  http = require('http'),
+  path = require('path'),
+
   routes = require('./routes'),
   api = require('./routes/api'),
-  http = require('http'),
-  path = require('path');
+  pdf = require('./routes/pdf');
 
 var app = module.exports = express();
 app.set('port', process.env.PORT || 3000);
@@ -43,6 +45,8 @@ app.get('/partials/:name', routes.partials);
 
 // JSON API
 app.get('/api/name', api.name);
+
+app.post('/pdf', pdf.download);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);

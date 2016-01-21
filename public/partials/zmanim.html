@@ -1,27 +1,27 @@
-<h3>daily times</h3>
+<h2>These are the usual times, but of course there are exceptions, like during:</h2>
 <ul>
-  <li>
-    daf yomi: 6:30 AM
+  <li>bein hazmanim</li>
+  <li>winter break</li>
+  <li>yomim tovim</li>
+</ul>
+<h3>Daily Times</h3>
+<ul>
+  <li ng-repeat="(daven,time) in self.daily">{{daven}}: {{time}}</li>
+</ul>
+
+<h3>Parshas {{self.parsha}}<button ng-click="getPdf()">PDF</button></h3>
+<ul>
+  <li>candle lighting: {{self.shabbos.licht}}</li>
+  <li>mincha: {{self.shabbos.leilMincha}}</li>
+  <li>shkia: {{self.shabbos.leilShkia}}</li>
+  <li>shacharis: 8:30 AM</li>
+  <li>End Time for Shma<br>
+    MA {{self.shabbos.ma}}<br>
+    Gra {{self.shabbos.gra}}
   </li>
-  <li>
-    shacharis: 7:30 AM
-  </li>
-  <li>
-    sof zman shema ma: {{zmanim.sof_zman_shema_ma}}
-  </li>
-    <li>
-    sof zman shema gra: {{zmanim.sof_zman_shema_gra}}
-  </li>
-  <li>
-    plag mincha ma: {{zmanim.plag_mincha_ma}}
-  </li>
-  <li>
-    shkia: {{zmanim.sunset}}
-  </li>
-    <li>
-    mincha: {{zmanim.plag_mincha_ma}}
-  </li>
-  <li>
-    shkia: {{zmanim.sunset}}
-  </li>
+  <li>daf yomi: {{self.shabbos.daf}}</li>
+  <li>mincha: {{self.shabbos.yomMincha}}</li>
+  <li>shkia: {{self.shabbos.yomShkia}}</li>
+  <li>maariv: {{self.shabbos.maariv}}</li>
+  <li>72 minutes: {{self.shabbos.end}}</li>
 </ul>
