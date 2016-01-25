@@ -18,6 +18,7 @@
     };
 
     self.shabbos = {
+      parsha: '',
       licht: '',
       leilMincha: '',
       leilShkia: '',
@@ -31,9 +32,11 @@
       end: ''
     };
 
-    self.getPdf = function() {
+    self.getPdf = function(shabbosZmanim) {
+      console.log('shabbos selfie: ', shabbosZmanim);
       var newWindow = window.open('assets/pdf/zmanim.pdf');  //this will bypass pop-up blocker
-      $http.post('/pdf').then(function(res) {
+      $http.post('/pdf', shabbosZmanim).then(function(res) {
+        console.log('response data from pdf.js: ',res.data);
         newWindow.location = 'assets/pdf/zmanim.pdf';
       });
     };
@@ -71,7 +74,6 @@
   
     $http.jsonp(todayUrl).then(function(res) {
       console.log('ou: ',res.data);
-      self.parsha = res.data.parsha_shabbos;
       self.shabbos.licht = time.format(res.data.candle_lighting_shabbos);
       self.daily.shkia = time.format(res.data.zmanim.sunset);
     });
@@ -80,15 +82,30 @@
 
     $http.get(shabbosUrl).then(function(res) {
       console.log('hebcal: ',res.data);
-      
-      //change this from iso to the ou api format using angular's 'M/d/yyyy'
-      var leilDate = res.data.items[0].date;
-      var leilUrl = makeUrl(leilDate);
-      console.log('leil date: ',leilDate);
 
-      var yomDate = res.data.items[1].date;
-      var yomUrl = makeUrl(yomDate);
-      console.log('yom date: ',yomDate);
+      var leilUrl, yomUrl;
+
+      res.data.items.forEach(function(obj) {
+        if (obj.category ==='candles') {
+          var leilDate = obj.date;
+          leilUrl = makeUrl(leilDate);
+          console.log('leil date: ',leilDate);
+        }
+        if (obj.category ==='parashat') {
+          self.shabbos.parsha = obj.title;
+          var yomDate = obj.date;
+          yomUrl = makeUrl(yomDate);
+          console.log('yom date: ',yomDate);
+        }
+      });
+
+      // var leilDate = res.data.items[0].date;
+      // var leilUrl = makeUrl(leilDate);
+      // console.log('leil date: ',leilDate);
+
+      // var yomDate = res.data.items[1].date;
+      // var yomUrl = makeUrl(yomDate);
+      // console.log('yom date: ',yomDate);
 
       //putting the ou service here in the callback because we need the shabbos date from hebcal first
       $http.jsonp(leilUrl).then(function(res) {

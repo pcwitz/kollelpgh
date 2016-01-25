@@ -9,7 +9,9 @@
   <li ng-repeat="(daven,time) in self.daily">{{daven}}: {{time}}</li>
 </ul>
 
-<h3>Parshas {{self.parsha}}<button ng-click="getPdf()">PDF</button></h3>
+<h3>{{self.shabbos.parsha}}
+  <button ng-click="self.getPdf(self.shabbos)">PDF</button>
+</h3>
 <ul>
   <li>candle lighting: {{self.shabbos.licht}}</li>
   <li>mincha: {{self.shabbos.leilMincha}}</li>
