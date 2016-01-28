@@ -10,15 +10,17 @@
     var self = this;
 
     self.daily = {
-      'daf yomi': '6:30 AM',
-      shacharis: '7:30 AM',
-      mincha: '3:45 PM',
-      shkia: '',
-      maariv: '9:40 PM'
+      'Shacharis Sunday': '7:30 AM',
+      'Shacharis Monday & Thursday': '7:50 AM',
+      'Shacharis Tuesday, Wednesday & Friday': '8:00 AM',
+      'Mincha': '3:45 PM',
+      'Shkia': '',
+      'Maariv': '9:40 PM'
     };
 
     self.shabbos = {
       parsha: '',
+      yomDate: '',
       licht: '',
       leilMincha: '',
       leilShkia: '',
@@ -70,12 +72,13 @@
     }
 
     var date = new Date();
+    self.date = $filter('date')(date, 'longDate');
     var todayUrl = makeUrl(date);
   
     $http.jsonp(todayUrl).then(function(res) {
       console.log('ou: ',res.data);
       self.shabbos.licht = time.format(res.data.candle_lighting_shabbos);
-      self.daily.shkia = time.format(res.data.zmanim.sunset);
+      self.daily.Shkia = time.format(res.data.zmanim.sunset);
     });
 
     var shabbosUrl = makeUrl();
@@ -93,6 +96,7 @@
         }
         if (obj.category ==='parashat') {
           self.shabbos.parsha = obj.title;
+          self.shabbos.yomDate = $filter('date')(obj.date, 'longDate');
           var yomDate = obj.date;
           yomUrl = makeUrl(yomDate);
           console.log('yom date: ',yomDate);

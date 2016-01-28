@@ -1,29 +1,29 @@
 <h2>These are the usual times, but of course there are exceptions, like during:</h2>
 <ul>
-  <li>bein hazmanim</li>
-  <li>winter break</li>
-  <li>yomim tovim</li>
+  <li>Bein Hazmanim</li>
+  <li>Winter Break</li>
+  <li>Yomim Tovim</li>
 </ul>
-<h3>Daily Times</h3>
+<h3>Daily Davening Times ({{self.date}})</h3>
 <ul>
   <li ng-repeat="(daven,time) in self.daily">{{daven}}: {{time}}</li>
 </ul>
 
-<h3>{{self.shabbos.parsha}}
+<h3>Shabbos {{self.shabbos.parsha}} ({{self.shabbos.yomDate}})
   <button ng-click="self.getPdf(self.shabbos)">PDF</button>
 </h3>
 <ul>
-  <li>candle lighting: {{self.shabbos.licht}}</li>
-  <li>mincha: {{self.shabbos.leilMincha}}</li>
-  <li>shkia: {{self.shabbos.leilShkia}}</li>
-  <li>shacharis: 8:30 AM</li>
+  <li>Candle Lighting: {{self.shabbos.licht}}</li>
+  <li>Mincha: {{self.shabbos.leilMincha}}</li>
+  <li>Shkia: {{self.shabbos.leilShkia}}</li>
+  <li>Shacharis: 8:30 AM</li>
   <li>End Time for Shma<br>
     MA {{self.shabbos.ma}}<br>
     Gra {{self.shabbos.gra}}
   </li>
-  <li>daf yomi: {{self.shabbos.daf}}</li>
-  <li>mincha: {{self.shabbos.yomMincha}}</li>
-  <li>shkia: {{self.shabbos.yomShkia}}</li>
-  <li>maariv: {{self.shabbos.maariv}}</li>
-  <li>72 minutes: {{self.shabbos.end}}</li>
+  <li>Daf Yomi: {{self.shabbos.daf}}</li>
+  <li>Mincha: {{self.shabbos.yomMincha}}</li>
+  <li>Shkia: {{self.shabbos.yomShkia}}</li>
+  <li>Maariv: {{self.shabbos.maariv}}</li>
+  <li>72 Minutes: {{self.shabbos.end}}</li>
 </ul>

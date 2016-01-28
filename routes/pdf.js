@@ -1,7 +1,9 @@
 exports.download = function (req, res) {
 
   var PDFDocument = require('pdfkit'),             
-  fs = require('fs');
+  fs = require('fs'),
+  randomColor = require('randomcolor');
+  var color = randomColor({luminosity: 'dark'});
 
   var doc = new PDFDocument();
   var writeStream = (fs.createWriteStream('public/assets/pdf/zmanim.pdf'));
@@ -19,16 +21,16 @@ exports.download = function (req, res) {
   doc.fillColor('black');
   doc.fontSize(24);
   doc.font('Courier');
-  doc.text(shabbos.parsha.toUpperCase(), 100, 200) //params: (text, x, y)
-    .moveDown(2.0)
-
-// column one
-  doc.font('Helvetica');
-  doc.y = 300;
-  doc.x = 200;
+  doc.text(shabbos.parsha.toUpperCase(), 100, 175) //params: (text, x, y)
 
   doc.fontSize(18);
+  doc.font('Helvetica')
+    .text(shabbos.yomDate, 400, 178);
 
+// column one
+  doc.y = 250;
+  doc.x = 200;
+//shabbos time headers
   doc.text('Candle Lighting')
     .moveDown(0.1)
     .text('Mincha')
@@ -56,13 +58,23 @@ exports.download = function (req, res) {
     .text('Maariv')
     .moveDown(0.1)
     .text('72 Minutes')
-    .moveDown(1.2)
+    .moveDown(1.85)
+
+//daily time headers
+    .text('Shacharis Sunday')
+    .moveDown(0.1)
+    .text('Shacharis Mon.& Thurs.')
+    .moveDown(0.1)
+    .text('Shacharis Tue. Wed.& Fri.')
+    .moveDown(0.1)
+    .text('Mincha This Week')
+    .moveDown(0.1)
+    .text('Maariv this Week');
 
 // column two
-  doc.y = 300;
+  doc.y = 250;
   doc.x = 425;
-
-  doc.text.align = 'right';
+//shabbos times
   doc.text(shabbos.licht, {
     align: 'right'
   })
@@ -108,7 +120,46 @@ exports.download = function (req, res) {
     .text(shabbos.end, {
     align: 'right'
     })
-    .moveDown(1.2)
+    .moveDown(1.85)
+//daily times
+    .text('7:30 AM' , {
+    align: 'right'
+    })
+    .moveDown(0.1)
+    .text('7:50 AM', {
+      align: 'right'
+    })
+    .moveDown(0.1)
+    .text('8:00 AM', {
+    align: 'right'
+    })
+    .moveDown(0.1)
+    .text('3:25 PM', {
+      align: 'right'
+    })
+    .moveDown(0.1)
+    .text('9:40 PM', {
+    align: 'right'
+    })
+
+    .rect(100,220,92,345) //rect(x, y, width, height)
+    .rect(100,580,92,150)
+    .fillAndStroke(color, color);
+
+  doc.fillColor('white')
+    .fontSize(16)
+    .text('SHABBOS', 106, 230) //params: (text, x, y)
+    .text('THIS WEEK', 102, 590)
+
+    .fontSize(14)
+    .text('Night', 130, 275)
+    .text('Daytime', 120, 375) //75pt increment
+    .text('Evening', 120, 500)
+    .text('Daily', 130, 640);
+
+
+
+    // .stroke('red');
   // doc.y = 300;
   // doc.fillColor('black')
   // doc.text(shabbos.licht, {
