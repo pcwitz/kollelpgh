@@ -30,7 +30,7 @@ ENVIRONMENT
   *  git clone https://github.com/pcwitz/kollelpgh.git
   *  npm install
   *  npm install nodemon -g
-  *  bower install
+  *  npm install bower -g
 ###  run
   *  npm start
   *  localhost:3000

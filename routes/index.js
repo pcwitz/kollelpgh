@@ -15,10 +15,10 @@
 
 
 exports.index = function(req, res){
-  res.sendfile('index');
+  res.sendFile('index');
 };
 
 exports.partials = function (req, res) {
   var name = req.params.name;
-  res.sendfile('partials/' + name);
+  res.sendFile('partials/' + name);
 };

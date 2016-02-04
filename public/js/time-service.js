@@ -40,7 +40,7 @@
 
     function formatMincha(shkia) {
       var t = spit(shkia);
-      t.minutes = t.minutes - 45;
+      t.minutes = t.minutes - 15;
 
       if (t.minutes <= 0) {
         t.hours = t.hours - 1;
